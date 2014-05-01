@@ -50,7 +50,7 @@ public class SimpleVideoPlayerActivity extends MenuDrawerBaseActivity {
         super.onCreate(savedInstanceState);
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
-        getActionBar().setHomeAsUpIndicator(R.drawable.ic_drawer);
+        updateHomeIndicator(R.drawable.ic_drawer);
         mMenuDrawer.setContentView(R.layout.main);
         mVideoView = (VideoView) findViewById(R.id.surface_view);
     }
@@ -64,6 +64,12 @@ public class SimpleVideoPlayerActivity extends MenuDrawerBaseActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void updateHomeIndicator(int resId) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2) {
+            getActionBar().setHomeAsUpIndicator(resId);
+        }
     }
 
     @Override
