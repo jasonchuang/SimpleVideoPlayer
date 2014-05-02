@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.jasonsoft.simplevideoplayer.LoadThumbnailTask;
 import com.jasonsoft.simplevideoplayer.R;
+import com.jasonsoft.simplevideoplayer.RoundedCornerImageView;
 import com.jasonsoft.simplevideoplayer.Utils;
 import com.jasonsoft.simplevideoplayer.data.MenuDrawerItem;
 import com.jasonsoft.simplevideoplayer.data.MenuDrawerCategory;
@@ -31,7 +32,7 @@ public class MenuAdapter extends CursorAdapter {
     }
 
     class ViewHolder {
-        ImageView thumbnailView;
+        RoundedCornerImageView thumbnailView;
         TextView title;
         TextView details;
     }
@@ -87,7 +88,7 @@ public class MenuAdapter extends CursorAdapter {
 
     ViewHolder populateViewHolder(View view) {
         ViewHolder holder = new ViewHolder();
-        holder.thumbnailView = (ImageView) view.findViewById(R.id.video_thumbnail);
+        holder.thumbnailView = (RoundedCornerImageView) view.findViewById(R.id.video_thumbnail);
         holder.title = (TextView) view.findViewById(R.id.video_title);
         holder.details = (TextView) view.findViewById(R.id.video_details);
         view.setTag(holder);

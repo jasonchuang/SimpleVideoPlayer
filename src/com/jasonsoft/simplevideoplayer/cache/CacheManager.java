@@ -23,11 +23,9 @@ public class CacheManager {
             protected int sizeOf(String key, Bitmap bitmap) {
                 // The cache size will be measured in kilobytes rather than
                 // number of items.
-        android.util.Log.d("jason", "LruCache sizeOf bitmap.getByteCount():" +  bitmap.getByteCount());
                 return bitmap.getByteCount() / 1024;
             }
         };
-        android.util.Log.d("jason", "Init mMemoryCache with size kilobytes:" +  cacheSize);
 
     }
 

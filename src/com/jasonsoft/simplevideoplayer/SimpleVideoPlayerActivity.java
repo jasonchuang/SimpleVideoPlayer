@@ -52,6 +52,7 @@ public class SimpleVideoPlayerActivity extends MenuDrawerBaseActivity {
         getActionBar().setHomeButtonEnabled(true);
         updateHomeIndicator(R.drawable.ic_drawer);
         mMenuDrawer.setContentView(R.layout.main);
+        mMenuDrawer.setOnDrawerStateChangeListener(this);
         mVideoView = (VideoView) findViewById(R.id.surface_view);
     }
 
@@ -99,6 +100,16 @@ public class SimpleVideoPlayerActivity extends MenuDrawerBaseActivity {
     protected Position getDrawerPosition() {
         // START = left, END = right
         return Position.START;
+    }
+
+    @Override
+    public void onDrawerStateChange(int oldState, int newState) {
+        boolean isOpen = (newState == MenuDrawer.STATE_OPEN || newState == MenuDrawer.STATE_OPENING);
+        updateHomeIndicator(isOpen ? R.drawable.ic_drawer_open : R.drawable.ic_drawer);
+    }
+
+    @Override
+    public void onDrawerSlide(float openRatio, int offsetPixels) {
     }
 
     private void stopVideo() {

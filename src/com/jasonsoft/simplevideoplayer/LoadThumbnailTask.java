@@ -34,8 +34,6 @@ public class LoadThumbnailTask extends AsyncTask<LoadThumbnailParams, Void, Load
         data = params[0].origId;
         Bitmap bitmap = Thumbnails.getThumbnail(mContext.getContentResolver(), data,
                 Thumbnails.MINI_KIND, new Options());
-        android.util.Log.d("jason", "doInBackground data:" + data);
-        android.util.Log.d("jason", "doInBackground bitmap:" + bitmap);
         if (data > 0 && bitmap != null) {
             CacheManager.getInstance().addThumbnailToMemoryCache(String.valueOf(data), bitmap);
         }

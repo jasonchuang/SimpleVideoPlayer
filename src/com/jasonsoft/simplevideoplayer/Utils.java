@@ -18,8 +18,6 @@ package com.jasonsoft.simplevideoplayer;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.util.DisplayMetrics;
-import android.widget.ImageView;
 
 import com.jasonsoft.simplevideoplayer.cache.CacheManager;
 import com.jasonsoft.simplevideoplayer.data.AsyncDrawable;
@@ -69,7 +67,7 @@ public class Utils {
         }
     }
 
-    public static void loadThumbnail(Context context, long origId, ImageView thumbnailView, Bitmap defaultBitmap) {
+    public static void loadThumbnail(Context context, long origId, RoundedCornerImageView thumbnailView, Bitmap defaultBitmap) {
         final String imageKey = String.valueOf(origId);
         final Bitmap bitmap = CacheManager.getInstance().getMemoryCache().get(imageKey);
 
@@ -89,7 +87,7 @@ public class Utils {
      * Returns false if the work in progress deals with the same data. The work is not
      * stopped in that case.
      */
-    public static boolean cancelPotentialWork(Object data, ImageView imageView) {
+    public static boolean cancelPotentialWork(Object data, RoundedCornerImageView imageView) {
         final LoadThumbnailTask loadPhotoTask = LoadThumbnailTask.getLoadThumbnailTask(imageView);
 
         if (loadPhotoTask != null) {

@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class MenuDrawerBaseActivity extends FragmentActivity implements MenuAdapter.MenuListener,
-        LoaderManager.LoaderCallbacks<Cursor> {
+        MenuDrawer.OnDrawerStateChangeListener, LoaderManager.LoaderCallbacks<Cursor> {
 
     private static final String STATE_ACTIVE_POSITION =
             "net.simonvt.menudrawer.samples.LeftDrawerSample.activePosition";
@@ -108,31 +108,8 @@ public abstract class MenuDrawerBaseActivity extends FragmentActivity implements
 
 
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-//    Uri uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
-//    String[] columns = {
-//                MediaStore.Video.VideoColumns._ID,
-//                        MediaStore.Video.VideoColumns.TITLE,
-//                                MediaStore.Video.VideoColumns.ARTIST
-//                                        };
-//
-//    String selection = MediaStore.Video.VideoColumns.DATA + "=?";
-//    String selectionArgs[] = { "/mnt/sdcard/Movies/landscapes.mp4" };
-//
-//    Cursor cursor = context.getContentResolver().query(uri, columns, selection, selectionArgs, null);
-//
-//
-//
-        // This is called when a new Loader needs to be created.  This
-        // sample only has one Loader, so we don't care about the ID.
-        // First, pick the base URI to use depending on whether we are
-        // currently filtering.
         Uri baseUri;
-        //        if (mCurFilter != null) {
-        //            baseUri = Uri.withAppendedPath(Contacts.CONTENT_FILTER_URI,
-        //                    Uri.encode(mCurFilter));
-        //        } else {
         baseUri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
-        //        }
 
         // Now create and return a CursorLoader that will take care of
         // creating a Cursor for the data being displayed.
