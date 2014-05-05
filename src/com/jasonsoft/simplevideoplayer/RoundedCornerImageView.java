@@ -5,8 +5,10 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.graphics.Path;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.widget.ImageView;
+import android.view.View;
 
 public class RoundedCornerImageView extends ImageView {
     private int mRoundedRadius;
@@ -28,6 +30,9 @@ public class RoundedCornerImageView extends ImageView {
 
     private void init() {
         mRoundedRadius = (int) getResources().getDimension(R.dimen.rounded_radius);
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR2) {
+            setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        }
     }
 
     @Override
