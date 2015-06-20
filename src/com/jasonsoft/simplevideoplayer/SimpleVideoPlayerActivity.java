@@ -118,6 +118,12 @@ public class SimpleVideoPlayerActivity extends MenuDrawerBaseActivity {
 
     private void playVideo(String path) {
         mVideoView.setVideoPath(path);
+//        mVideoView.setVideoPath("/sdcard/test.m3u8");
+//        String src = "http://devimages.apple.com/iphone/samples/bipbop/gear1/prog_index.m3u8";
+//        String src = "http://devimages.apple.com/iphone/samples/bipbop/gear1/fileSequence176.ts";
+//        String src = "http://208.75.229.59:1935/1tv/smil:1tvmulti.smil/playlist.m3u8";
+//        String src = "http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8" ;
+//        mVideoView.setVideoURI(Uri.parse(src));
         mVideoView.setMediaController(new MediaController(this));
         mVideoView.requestFocus();
         mVideoView.start();
